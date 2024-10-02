@@ -19,3 +19,6 @@ with open('periodictable.csv', mode='r', encoding='latin1') as file:
     
     for row in reader:
         print(row)
+
+userChoice = input('Enter the symbol or atomic number to get more information about the element, or END to exit the program. ')
+print(userChoice)
