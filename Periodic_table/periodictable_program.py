@@ -23,7 +23,9 @@ with open('periodictable.csv', mode='r', encoding='iso-8859-2') as file:
 
 
 def show_element_details(number):
+    print("****")
     print("User choose: ", number)
+    
     # if 1 <= number <= len(elements):
     #     element = elements[number - 1]
     #     print(f"Pierwiastek {element[1]} (Symbol: {element[2]})")
