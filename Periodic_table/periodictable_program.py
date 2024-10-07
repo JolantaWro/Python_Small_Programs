@@ -36,7 +36,14 @@ def show_element_details(number):
     #     print("Liczba poza zakresem. Podaj liczbę między 1 a", len(elements))
 
 
+def show_element_options():
+    print("Available elements")
+    for element in elements:
+        if len(element) >= 3:
+            print(f"{element[2]} - {element[1]}")
+
 while True:
+    show_element_options()
     user_input = input("Enter the symbol or atomic number to get more information about the element, or END to exit the program. ")
 
     if user_input.lower() == 'end':
@@ -46,6 +53,5 @@ while True:
     try:
         number = int(user_input)
         show_element_details(number)
-        
     except ValueError:
         print("I'm sorry, I didn't understand. Please try again. Please enter a number or 'END")
