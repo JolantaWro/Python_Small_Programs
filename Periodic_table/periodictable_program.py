@@ -18,6 +18,7 @@ elements = []
 with open('periodictable.csv', mode='r', encoding='iso-8859-2') as file:
     reader = csv.reader(file)
 
+
     for row in reader:
         elements.append(row)
 
@@ -39,8 +40,9 @@ def show_element_details(number):
 def show_element_options():
     print("Available elements")
     for element in elements:
-        if len(element) >= 3:
-            print(f"{element[2]} - {element[1]}")
+        print(element[0])
+        # if len(element) >= 3:
+        #     print(f"{element[2]} - {element[1]}")
 
 while True:
     show_element_options()
