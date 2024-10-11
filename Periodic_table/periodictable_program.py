@@ -36,6 +36,18 @@ with open('table.csv') as file:
 def show_element_details(symbol_user):
     print("****")
     print("User choose: ", symbol_user)
+    print("****")
+    symbol_user = symbol_user.capitalize()
+    for element in elements:
+        if element[2].capitalize() == symbol_user:
+            print("****")
+            print(f"Element: {element[1]} (Symbol: {element[2]})")
+            print(f"Atomic Number: {element[0]}")
+            print(f"Atomic Mass: {element[3]}")
+            print(f"Group: {element[4]}, Period: {element[5]}")
+            print("****")
+            return
+    print(f"Element with symbol '{symbol_user}' not found.")
 
 
 def show_element_options():
