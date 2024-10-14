@@ -80,7 +80,12 @@ while True:
     try:
         if user_input.upper() in [symbol.upper() for symbol in main_symbol]:
             show_element_details(user_input)
+            try_again = input("Do you want to try another element? (yes/no): ").strip().lower()
+            if try_again != 'yes':
+                print("Goodbye!")
+                break
         else:
             print("I'm sorry, I didn't understand. Please try again. Please enter the symbol or 'END")
+
     except ValueError:
         print("I'm sorry, I didn't understand. Please try again. Please enter the symbol or 'END")
