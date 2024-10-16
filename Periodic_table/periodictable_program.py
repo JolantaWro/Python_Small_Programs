@@ -34,9 +34,6 @@ with open('table.csv') as file:
 
 
 def show_element_details(symbol_user):
-    print("****")
-    print("User choose: ", symbol_user)
-    print("****")
     symbol_user = symbol_user.capitalize()
     for element in elements:
         if element[2].capitalize() == symbol_user:
@@ -81,9 +78,10 @@ while True:
         if user_input.upper() in [symbol.upper() for symbol in main_symbol]:
             show_element_details(user_input)
             try_again = input("Do you want to try another element? (yes/no): ").strip().lower()
-            if try_again != 'yes':
+            if try_again == 'no' or try_again =='n':
                 print("Goodbye!")
                 break
+                
         else:
             print("I'm sorry, I didn't understand. Please try again. Please enter the symbol or 'END")
 
