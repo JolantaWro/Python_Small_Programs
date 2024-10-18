@@ -49,7 +49,9 @@ def show_element_details(symbol_user):
 
 def show_element_options():
     print(
-        '''            Periodic table of elements
+        '''            
+                    Periodic table of elements
+
       1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18
     1 H                                                  He
     2 Li Be                               B  C  N  O  F  Ne
@@ -60,7 +62,8 @@ def show_element_options():
     7 Fr Ra Ac Rf Db Sg Bh Hs Mt Ds Rg Cn Nh Fl Mc Lv Ts Og
 
             Ce Pr Nd Pm Sm Eu Gd Tb Dy Ho Er Tm Yb Lu
-            Th Pa U  Np Pu Am Cm Bk Cf Es Fm Md No Lr'''
+            Th Pa U  Np Pu Am Cm Bk Cf Es Fm Md No Lr
+            '''
             )
 
 
@@ -68,7 +71,7 @@ def show_element_options():
 while True:
     show_element_options()
 
-    user_input = input("Enter the symbol to get more information about the element, or END to exit the program. ")
+    user_input = input("Enter the symbol to get more information about the element, or END to exit the program ")
 
     if user_input.lower() == 'end':
         print("Goodbye!")
@@ -77,10 +80,20 @@ while True:
     try:
         if user_input.upper() in [symbol.upper() for symbol in main_symbol]:
             show_element_details(user_input)
-            try_again = input("Do you want to try another element? (yes/no): ").strip().lower()
-            if try_again == 'no' or try_again =='n':
-                print("Goodbye!")
-                break
+            
+            while True:
+                try_again = input("Do you want to try another element? (yes/no): ").strip().lower()
+
+                if try_again == 'yes':
+                    break
+
+                elif try_again == 'no':
+                    print("Goodbye!")
+                    exit()
+
+                else:
+                    print("Please enter a valid response ('yes' or 'no').")
+            
                 
         else:
             print("I'm sorry, I didn't understand. Please try again. Please enter the symbol or 'END")
