@@ -9,3 +9,7 @@ Each new round adds another element to the sequence, increasing the level of dif
 The game is inspired by the popular electronic toy Simon, known for its challenges of repeating growing sequences of colors and sounds. 
 This program offers a great way to exercise memory and concentration.
 """
+from playsound import playsound
+
+playsound('soundA.wav')
+print('playing sound using playsound')
