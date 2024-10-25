@@ -10,6 +10,30 @@ The game is inspired by the popular electronic toy Simon, known for its challeng
 This program offers a great way to exercise memory and concentration.
 """
 from playsound import playsound
+import time
 
-playsound('soundA.wav')
-print('playing sound using playsound')
+
+def show_element_options():
+    print("Let's play a game of guessing the sequence! Please remember:")
+    print("when you hear this sound:")
+    time.sleep(2) 
+    playsound('soundA.wav')
+    time.sleep(1) 
+    print("press A")
+    print("when you hear this sound:")
+    time.sleep(2) 
+    playsound('soundS.wav')
+    time.sleep(1) 
+    print("press S")
+    print("when you hear this sound:")
+    time.sleep(2) 
+    playsound('soundD.wav')
+    time.sleep(1) 
+    print("press D")
+    print("when you hear this sound:")
+    time.sleep(2) 
+    playsound('soundF.wav')
+    time.sleep(1) 
+    print("press F")
+
+show_element_options()
