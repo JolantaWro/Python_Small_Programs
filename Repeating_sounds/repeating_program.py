@@ -14,34 +14,32 @@ import time
 
 
 def show_element_options():
-    print("Let's play a game of guessing the sequence! Please remember:")
-    print("when you hear this sound:")
+    print("\n___When you hear this sound____")
     time.sleep(2) 
     playsound('soundA.wav')
     time.sleep(1) 
     print("press A")
-    print("when you hear this sound:")
+    print("\n___When you hear this sound___")
     time.sleep(2) 
     playsound('soundS.wav')
     time.sleep(1) 
     print("press S")
-    print("when you hear this sound:")
+    print("\n___When you hear this sound___")
     time.sleep(2) 
     playsound('soundD.wav')
     time.sleep(1) 
     print("press D")
-    print("when you hear this sound:")
+    print("\n___When you hear this sound___")
     time.sleep(2) 
     playsound('soundF.wav')
     time.sleep(1) 
     print("press F")
 
-# show_element_options()
 print("=== Welcome to the game! ===")
 while True:
     print("\nAre you ready for the game?")
     print("1. Yes, I am ready!")
-    print("2. I want to listen to the sound again.")
+    print("2. I want to listen to the sound.")
     print("3. Exit the game.")
         
     choice = input("Choose an option (1, 2, 3): ")
@@ -51,6 +49,7 @@ while True:
         break
     elif choice == '2':
         print("\nPlaying the sound...")
+        show_element_options()
 
     elif choice == '3':
         print("\nThank you for your time! See you next time!")
