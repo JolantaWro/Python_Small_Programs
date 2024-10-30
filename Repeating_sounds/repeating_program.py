@@ -13,7 +13,7 @@ from playsound import playsound
 import time
 
 
-def show_element_options():
+def show_element_options(): 
     print("\n___When you hear this sound____")
     time.sleep(2) 
     playsound('soundA.wav')
