@@ -10,6 +10,7 @@ The game is inspired by the popular electronic toy Simon, known for its challeng
 This program offers a great way to exercise memory and concentration.
 """
 from playsound import playsound
+from random import choice
 import time
 
 
@@ -42,18 +43,21 @@ while True:
     print("2. I want to listen to the sound.")
     print("3. Exit the game.")
         
-    choice = input("Choose an option (1, 2, 3): ")
+    user_choice = input("Choose an option (1, 2, 3): ")
 
-    if choice == '1':
+    if user_choice == '1':
         print("\nGreat! Let's start the game!")
+
+        guest_one = choice(['A', 'F', 'D', 'S'])
+        print(guest_one)
         break
-    elif choice == '2':
+    elif user_choice == '2':
         print("\nPlaying the sound...")
         show_element_options()
 
-    elif choice == '3':
+    elif user_choice == '3':
         print("\nThank you for your time! See you next time!")
         break
     else:
         print("\nInvalid choice. Please try again.")
-    
+        
