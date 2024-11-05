@@ -14,27 +14,41 @@ from random import choice
 import time
 
 
-def show_element_options(): 
-    print("\n___When you hear this sound____")
-    time.sleep(2) 
-    playsound('soundA.wav')
-    time.sleep(1) 
-    print("press A")
-    print("\n___When you hear this sound___")
-    time.sleep(2) 
-    playsound('soundS.wav')
-    time.sleep(1) 
-    print("press S")
-    print("\n___When you hear this sound___")
-    time.sleep(2) 
-    playsound('soundD.wav')
-    time.sleep(1) 
-    print("press D")
-    print("\n___When you hear this sound___")
-    time.sleep(2) 
-    playsound('soundF.wav')
-    time.sleep(1) 
-    print("press F")
+# def show_element_options(): 
+#     print("\n___When you hear this sound____")
+#     time.sleep(2) 
+#     playsound('soundA.wav')
+#     time.sleep(1) 
+#     print("press A")
+#     print("\n___When you hear this sound___")
+#     time.sleep(2) 
+#     playsound('soundS.wav')
+#     time.sleep(1) 
+#     print("press S")
+#     print("\n___When you hear this sound___")
+#     time.sleep(2) 
+#     playsound('soundD.wav')
+#     time.sleep(1) 
+#     print("press D")
+#     print("\n___When you hear this sound___")
+#     time.sleep(2) 
+#     playsound('soundF.wav')
+#     time.sleep(1) 
+#     print("press F")
+
+
+def play_sequence(sequence):
+    """Play the sequence of sounds for the player to remember."""
+    for element in sequence:
+        if element == 'A':
+            playsound('soundA.wav')
+        elif element == 'S':
+            playsound('soundS.wav')
+        elif element == 'D':
+            playsound('soundD.wav')
+        elif element == 'F':
+            playsound('soundF.wav')
+        time.sleep(0.5)
 
 print("=== Welcome to the game! ===")
 while True:
@@ -47,9 +61,13 @@ while True:
 
     if user_choice == '1':
         print("\nGreat! Let's start the game!")
+        sequence = []
+        round_number = 1
 
-        guest_one = choice(['A', 'F', 'D', 'S'])
-        print(guest_one)
+        guest_sequence = choice(['A', 'F', 'D', 'S'])
+        
+        sequence.append(guest_sequence)
+        play_sequence(sequence)
         break
     elif user_choice == '2':
         print("\nPlaying the sound...")
