@@ -9,33 +9,33 @@ Each new round adds another element to the sequence, increasing the level of dif
 The game is inspired by the popular electronic toy Simon, known for its challenges of repeating growing sequences of colors and sounds. 
 This program offers a great way to exercise memory and concentration.
 """
+
 from playsound import playsound
 from random import choice
 import time
 
-
-# def show_element_options(): 
-#     print("\n___When you hear this sound____")
-#     time.sleep(2) 
-#     playsound('soundA.wav')
-#     time.sleep(1) 
-#     print("press A")
-#     print("\n___When you hear this sound___")
-#     time.sleep(2) 
-#     playsound('soundS.wav')
-#     time.sleep(1) 
-#     print("press S")
-#     print("\n___When you hear this sound___")
-#     time.sleep(2) 
-#     playsound('soundD.wav')
-#     time.sleep(1) 
-#     print("press D")
-#     print("\n___When you hear this sound___")
-#     time.sleep(2) 
-#     playsound('soundF.wav')
-#     time.sleep(1) 
-#     print("press F")
-
+def show_element_options(): 
+    """Shows instructions on what key to press when hearing a specific sound."""
+    print("\n___When you hear this sound____")
+    time.sleep(2) 
+    playsound('soundA.wav')
+    time.sleep(1) 
+    print("press A")
+    print("\n___When you hear this sound___")
+    time.sleep(2) 
+    playsound('soundS.wav')
+    time.sleep(1) 
+    print("press S")
+    print("\n___When you hear this sound___")
+    time.sleep(2) 
+    playsound('soundD.wav')
+    time.sleep(1) 
+    print("press D")
+    print("\n___When you hear this sound___")
+    time.sleep(2) 
+    playsound('soundF.wav')
+    time.sleep(1) 
+    print("press F")
 
 def play_sequence(sequence):
     """Play the sequence of sounds for the player to remember."""
@@ -64,11 +64,18 @@ while True:
         sequence = []
         round_number = 1
 
-        guest_sequence = choice(['A', 'F', 'D', 'S'])
-        
-        sequence.append(guest_sequence)
-        play_sequence(sequence)
+        while True:
+            print(f"\n--- Round {round_number} ---")
+            new_element = choice(['A', 'F', 'D', 'S'])
+            sequence.append(new_element)
+
+            play_sequence(sequence)
+
+            player_input = input("Repeat the sequence: ").strip().upper()
+            print(player_input)
+            break
         break
+
     elif user_choice == '2':
         print("\nPlaying the sound...")
         show_element_options()
@@ -78,4 +85,3 @@ while True:
         break
     else:
         print("\nInvalid choice. Please try again.")
-        
