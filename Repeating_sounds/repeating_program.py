@@ -72,6 +72,8 @@ while True:
             play_sequence(sequence)
 
             player_input = input("Repeat the sequence: ").strip().upper()
+            if player_input in sequence:
+                print('yes')
             print(player_input)
             break
         break
