@@ -50,6 +50,13 @@ def play_sequence(sequence):
             playsound('soundF.wav')
         time.sleep(0.5)
 
+def play_round():
+    sequence = []
+    round_number = 1
+
+    new_element = choice(['A', 'F', 'D', 'S'])
+    sequence.append(new_element)
+
 print("=== Welcome to the game! ===")
 while True:
     print("\nAre you ready for the game?")
