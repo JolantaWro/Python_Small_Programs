@@ -70,6 +70,7 @@ while True:
         print("\nGreat! Let's start the game!")
         sequence = []
         round_number = 1
+        guest_round = 0
 
         while True:
             print(f"\n--- Round {round_number} ---")
@@ -79,8 +80,9 @@ while True:
             play_sequence(sequence)
 
             player_input = input("Repeat the sequence: ").strip().upper()
-            if player_input in sequence:
-                print('yes')
+            if player_input in sequence: 
+                guest_round += 1
+            
             print(player_input)
             break
         break
