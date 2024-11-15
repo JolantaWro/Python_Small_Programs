@@ -81,7 +81,11 @@ while True:
 
             player_input = input("Repeat the sequence: ").strip().upper()
             if player_input in sequence: 
+                print("YES")
                 guest_round += 1
+                new_element = choice(['A', 'F', 'D', 'S'])
+                sequence.append(new_element)
+                play_sequence(sequence)
             
             print(player_input)
             break
