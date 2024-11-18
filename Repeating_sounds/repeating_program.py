@@ -80,15 +80,24 @@ while True:
             play_sequence(sequence)
 
             player_input = input("Repeat the sequence: ").strip().upper()
-            if player_input in sequence: 
-                print("YES")
-                guest_round += 1
-                new_element = choice(['A', 'F', 'D', 'S'])
-                sequence.append(new_element)
-                play_sequence(sequence)
+            # if player_input in sequence: 
+            #     print("YES")
+            #     guest_round += 1
+            #     new_element = choice(['A', 'F', 'D', 'S'])
+            #     sequence.append(new_element)
+            #     play_sequence(sequence)
             
-            print(player_input)
-            break
+            # print(player_input)
+            # break
+            if player_input == ''.join(sequence):
+                print("Correct! Get ready for the next round!")
+                round_number += 1
+                time.sleep(1)
+            else:
+                print("Incorrect! Game Over.")
+                print(f"The correct sequence was: {''.join(sequence)}")
+                print(f"You reached round {round_number}.")
+                break
         break
 
     elif user_choice == '2':
