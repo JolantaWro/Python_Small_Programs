@@ -93,6 +93,8 @@ while True:
                 print("Correct! Get ready for the next round!")
                 round_number += 1
                 time.sleep(1)
+                new_element = choice(['A', 'F', 'D', 'S'])
+                print(new_element)
             else:
                 print("Incorrect! Game Over.")
                 print(f"The correct sequence was: {''.join(sequence)}")
