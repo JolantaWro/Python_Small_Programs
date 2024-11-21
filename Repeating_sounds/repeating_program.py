@@ -42,12 +42,16 @@ def play_sequence(sequence):
     for element in sequence:
         if element == 'A':
             playsound('soundA.wav')
+            print("A")
         elif element == 'S':
             playsound('soundS.wav')
+            print("S")
         elif element == 'D':
             playsound('soundD.wav')
+            print("D")
         elif element == 'F':
             playsound('soundF.wav')
+            print("F")
         time.sleep(0.5)
 
 def play_round():
