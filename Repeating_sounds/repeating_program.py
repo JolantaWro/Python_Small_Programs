@@ -14,6 +14,13 @@ from playsound import playsound
 from random import choice
 import time
 
+SOUND_MAP = {
+    'A': 'soundA.wav',
+    'S': 'soundS.wav',
+    'D': 'soundD.wav',
+    'F': 'soundF.wav'
+}
+
 def show_element_options(): 
     """Shows instructions on what key to press when hearing a specific sound."""
     # print("\n___When you hear this sound____")
@@ -36,8 +43,8 @@ def show_element_options():
     # playsound('soundF.wav')
     # time.sleep(1) 
     # print("press F")
-    sounds = {'A': 'soundA.wav', 'S': 'soundS.wav', 'D': 'soundD.wav', 'F': 'soundF.wav'}
-    for key, sound in sounds.items():
+    
+    for key, sound in SOUND_MAP.items():
         print(f"\nWhen you hear this sound:")
         playsound(sound)
         time.sleep(1)
