@@ -22,32 +22,10 @@ SOUND_MAP = {
 }
 
 def show_element_options(): 
-    """Shows instructions on what key to press when hearing a specific sound."""
-    # print("\n___When you hear this sound____")
-    # time.sleep(2) 
-    # playsound('soundA.wav')
-    # time.sleep(1) 
-    # print("press A")
-    # print("\n___When you hear this sound___")
-    # time.sleep(2) 
-    # playsound('soundS.wav')
-    # time.sleep(1) 
-    # print("press S")
-    # print("\n___When you hear this sound___")
-    # time.sleep(2) 
-    # playsound('soundD.wav')
-    # time.sleep(1) 
-    # print("press D")
-    # print("\n___When you hear this sound___")
-    # time.sleep(2) 
-    # playsound('soundF.wav')
-    # time.sleep(1) 
-    # print("press F")
-    
     for key, sound in SOUND_MAP.items():
         print(f"\nWhen you hear this sound:")
         playsound(sound)
-        time.sleep(1)
+        time.sleep(3)
         print(f"Press '{key}'.")
 
 def play_sequence(sequence):
@@ -74,7 +52,7 @@ def play_round():
     new_element = choice(['A', 'F', 'D', 'S'])
     sequence.append(new_element)
 
-print("=== Welcome to the game! ===")
+print("\n=== Welcome to the game! ===")
 while True:
     print("\nAre you ready for the game?")
     print("1. Yes, I am ready!")
