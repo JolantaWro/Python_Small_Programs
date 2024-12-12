@@ -28,21 +28,27 @@ def show_element_options():
         time.sleep(3)
         print(f"Press '{key}'.")
 
+# def play_sequence(sequence):
+#     """Play the sequence of sounds for the player to remember."""
+#     for element in sequence:
+#         if element == 'A':
+#             playsound('soundA.wav')
+#             print("A")
+#         elif element == 'S':
+#             playsound('soundS.wav')
+#             print("S")
+#         elif element == 'D':
+#             playsound('soundD.wav')
+#             print("D")
+#         elif element == 'F':
+#             playsound('soundF.wav')
+#             print("F")
+#         time.sleep(0.5)
 def play_sequence(sequence):
     """Play the sequence of sounds for the player to remember."""
     for element in sequence:
-        if element == 'A':
-            playsound('soundA.wav')
-            print("A")
-        elif element == 'S':
-            playsound('soundS.wav')
-            print("S")
-        elif element == 'D':
-            playsound('soundD.wav')
-            print("D")
-        elif element == 'F':
-            playsound('soundF.wav')
-            print("F")
+        playsound(SOUND_MAP[element])
+        print(element)
         time.sleep(0.5)
 
 def play_round():
