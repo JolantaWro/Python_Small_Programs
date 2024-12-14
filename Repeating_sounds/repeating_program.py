@@ -22,6 +22,7 @@ SOUND_MAP = {
 }
 
 def show_element_options(): 
+    """Play the sequence of sounds for the player to remember."""
     for key, sound in SOUND_MAP.items():
         print(f"\nWhen you hear this sound:")
         playsound(sound)
