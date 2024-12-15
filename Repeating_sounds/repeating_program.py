@@ -22,7 +22,6 @@ SOUND_MAP = {
 }
 
 def show_element_options(): 
-    """Play the sequence of sounds for the player to remember."""
     for key, sound in SOUND_MAP.items():
         print(f"\nWhen you hear this sound:")
         playsound(sound)
@@ -51,6 +50,10 @@ def play_sequence(sequence):
         playsound(SOUND_MAP[element])
         print(element)
         time.sleep(0.5)
+
+def get_new_element():
+    """Generate a new random element from the valid keys."""
+    return choice(list(SOUND_MAP.keys()))
 
 def play_round():
     sequence = []
