@@ -14,6 +14,7 @@ from playsound import playsound
 from random import choice
 import time
 
+
 SOUND_MAP = {
     'A': 'soundA.wav',
     'S': 'soundS.wav',
@@ -21,98 +22,74 @@ SOUND_MAP = {
     'F': 'soundF.wav'
 }
 
-def show_element_options(): 
+def show_element_options():
+    """Displays the sound options to the player."""
     for key, sound in SOUND_MAP.items():
         print(f"\nWhen you hear this sound:")
         playsound(sound)
-        time.sleep(3)
+        time.sleep(1)
         print(f"Press '{key}'.")
 
-# def play_sequence(sequence):
-#     """Play the sequence of sounds for the player to remember."""
-#     for element in sequence:
-#         if element == 'A':
-#             playsound('soundA.wav')
-#             print("A")
-#         elif element == 'S':
-#             playsound('soundS.wav')
-#             print("S")
-#         elif element == 'D':
-#             playsound('soundD.wav')
-#             print("D")
-#         elif element == 'F':
-#             playsound('soundF.wav')
-#             print("F")
-#         time.sleep(0.5)
 def play_sequence(sequence):
-    """Play the sequence of sounds for the player to remember."""
+    """Plays the sequence of sounds"""
     for element in sequence:
         playsound(SOUND_MAP[element])
-        print(element)
         time.sleep(0.5)
 
 def get_new_element():
-    """Generate a new random element from the valid keys."""
+    """Generates a new random element from the valid keys."""
     return choice(list(SOUND_MAP.keys()))
 
 def play_round():
+    """Runs the main game loop for a round."""
     sequence = []
     round_number = 1
 
-    new_element = choice(['A', 'F', 'D', 'S'])
-    sequence.append(new_element)
+    while True:
+        print(f"\n--- Round {round_number} ---")
+        new_element = get_new_element()
+        sequence.append(new_element)
 
-print("\n=== Welcome to the game! ===")
-while True:
-    print("\nAre you ready for the game?")
-    print("1. Yes, I am ready!")
-    print("2. I want to listen to the sound.")
-    print("3. Exit the game.")
-        
-    user_choice = input("Choose an option (1, 2, 3): ")
+        play_sequence(sequence)
+        player_input = input("Repeat the sequence: ").strip().upper()
 
-    if user_choice == '1':
-        print("\nGreat! Let's start the game!")
-        sequence = []
-        round_number = 1
-        guest_round = 0
+        if player_input == ''.join(sequence):
+            print("Correct! Get ready for the next round!")
+            round_number += 1
+            time.sleep(2)
+        else:
+            print("Incorrect! Game Over.")
+            print(f"The correct sequence was: {''.join(sequence)}")
+            print(f"You reached round {round_number}.")
+            break
 
-        while True:
-            print(f"\n--- Round {round_number} ---")
-            new_element = choice(['A', 'F', 'D', 'S'])
-            sequence.append(new_element)
+def main():
+    """Main function to control the game flow."""
+    print("\n=== Welcome to the Sound Repetition Game! ===")
 
-            play_sequence(sequence)
+    while True:
+        print("\nAre you ready for the game?")
+        print("1. Yes, I am ready!")
+        print("2. I want to listen to the sound options.")
+        print("3. Exit the game.")
 
-            player_input = input("Repeat the sequence: ").strip().upper()
-            # if player_input in sequence: 
-            #     print("YES")
-            #     guest_round += 1
-            #     new_element = choice(['A', 'F', 'D', 'S'])
-            #     sequence.append(new_element)
-            #     play_sequence(sequence)
-            
-            # print(player_input)
-            # break
-            if player_input == ''.join(sequence):
-                print("Correct! Get ready for the next round!")
-                round_number += 1
-                time.sleep(1)
-                new_element = choice(['A', 'F', 'D', 'S'])
-                print(new_element)
-            else:
-                print("Incorrect! Game Over.")
-                print(f"The correct sequence was: {''.join(sequence)}")
-                print(f"You reached round {round_number}.")
-                break
-        break
+        user_choice = input("Choose an option (1, 2, 3): ").strip()
 
-    elif user_choice == '2':
-        print("\nPlaying the sound...")
-        show_element_options()
+        if user_choice == '1':
+            print("\nGreat! Let's start the game!")
+            play_round()
+            break
 
-    elif user_choice == '3':
-        print("\nThank you for your time! See you next time!")
-        break
-    else:
-        print("\nInvalid choice. Please try again.")
+        elif user_choice == '2':
+            print("\nPlaying the sound options...")
+            show_element_options()
+
+        elif user_choice == '3':
+            print("\nThank you for playing! See you next time!")
+            break
+
+        else:
+            print("\nInvalid choice. Please try again.")
+
+if __name__ == "__main__":
+    main()
